@@ -22,19 +22,12 @@ const DUMMY_DATA = [
   ];
 
 function AllMeetupsPage() {
-
-    //the map function iterates through the list of data.
-    //the key=id prop is necessary to not get errors.
-
-    return <section>
-        <h1>All Meetups Page</h1>
-        <ul>
-            {DUMMY_DATA.map((meetup) => {
-                return <li key={meetup.id}>{meetup.title}</li>;
-            })}
-        </ul>
+    return (
+    <section>
+        <h1>All Meetups</h1>
+        <MeetupList meetups={DUMMY_DATA} />
     </section>
-
+    );
 }
 
 export default AllMeetupsPage;
