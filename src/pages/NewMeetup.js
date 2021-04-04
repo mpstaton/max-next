@@ -1,7 +1,12 @@
+import { useHistory } from 'react-router-dom';
+
 import NewMeetupForm from "../components/meetups/NewMeetupForm";
 
 
 function NewMeetupPage() {
+
+    const history = useHistory();
+
     /*firebase automagically creates the meetups collection if it doesn't exist.
     the fetch function is built into JavaScript and defaults to GET. */
     function addMeetupHandler(meetupData) {
@@ -13,7 +18,9 @@ function NewMeetupPage() {
                 'Content-Type': 'application/json'
             }
         }
-        );
+        ).then(() => {
+            history.replace('/')
+        });
     }
 
     return (
